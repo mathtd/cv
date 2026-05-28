@@ -1,0 +1,193 @@
+% CV — Modern Serif redesign (Charter + navy accent), three-line publications, left year column.
+% Build: pdflatex cv_new.tex  (run twice for the page-number header)
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{XCharter}            % body + headings font
+\usepackage{microtype}
+\usepackage{xcolor}
+\definecolor{accent}{RGB}{28,55,105}   % conservative navy
+\usepackage{geometry}
+\geometry{letterpaper,margin=1in}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{datetime}
+\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
+\usepackage[colorlinks=true,urlcolor=accent,linkcolor=accent]{hyperref}
+\hypersetup{
+  pdfauthor   = {Mathieu Taschereau-Dumouchel},
+  pdftitle    = {Mathieu Taschereau-Dumouchel: Curriculum Vitae},
+  pdfsubject  = {Curriculum Vitae},
+  pdfkeywords = {economics, macroeconomics, networks},
+  pdfpagemode = UseNone
+}
+
+% --- Helpers ---
+\linespread{1.06}        % a touch more leading for breathing room
+\newcommand{\sep}{\enspace\textperiodcentered\enspace}
+
+% Section / subsection styling
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0em}{}[{\color{accent!35}\titlerule[1pt]}]
+\titlespacing*{\section}{0pt}{1.9em}{0.7em}
+\titleformat{\subsection}{\normalsize\bfseries\color{accent}}{}{0em}{}
+\titlespacing*{\subsection}{0pt}{1.2em}{0.4em}
+
+% Entry: left year column + content block (wraps; year aligns to first line)
+\newcommand{\entry}[2]{\noindent\parbox[t]{0.16\textwidth}{\small #1}\begin{minipage}[t]{0.82\textwidth}#2\end{minipage}\par\vspace{0.7em}}
+% Full-width entry for year-less blocks (uses full text width, can break across pages)
+\newcommand{\entryfull}[1]{\noindent #1\par\vspace{0.7em}}
+
+% Running header on pages 2+ (name left, page number right)
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[L]{\footnotesize\scshape\color{black!65}Mathieu Taschereau-Dumouchel}
+\fancyhead[R]{\footnotesize\color{black!65}\thepage}
+
+\begin{document}
+\thispagestyle{empty}
+
+% --- Header ---
+\begin{center}
+  {\huge\bfseries\color{accent}Mathieu Taschereau-Dumouchel}\\[0.45em]
+  {\small 480 Uris Hall\sep Cornell University\sep Ithaca, New York 14853}\\[0.2em]
+  {\small \href{mailto:mt763@cornell.edu}{mt763@cornell.edu}\sep\href{https://www.mathtd.info}{www.mathtd.info}}\\[0.2em]
+\end{center}
+\vspace{0.5em}
+
+% --- Academic Positions ---
+\section{Academic Positions}
+\entry{2025--present}{Associate Professor of Economics (with tenure), Cornell University}
+\entry{2017--2025}{Assistant Professor of Economics and Robert Jain Faculty Fellow, Cornell University}
+\entry{2011--2017}{Assistant Professor of Finance, The Wharton School}
+
+% --- Education ---
+\section{Education}
+\entry{2012}{Ph.D., Economics, Princeton University}
+\entry{2008}{M.A., Economics, Princeton University}
+\entry{2006}{Ingénieur Polytechnicien, Appl.\ Math.\ and Economics, École Polytechnique, France}
+\entry{2006}{B.\,Eng., Engineering Physics, École Polytechnique de Montréal}
+
+% --- Research ---
+\section{Research}
+
+\subsection{Working Papers}
+\entry{2026}{\textbf{\href{https://www.mathtd.info/files/papers/Endogenous_RTS/paper.pdf}{Endogenous Returns to Scale}}\\
+with Alexandr Kopytov and Zebang Xu}
+\entry{2025}{\textbf{\href{https://www.mathtd.info/files/papers/origin_risk/paper.pdf}{The Origin of Risk}}\\
+with Alexandr Kopytov and Zebang Xu\\
+\textit{Quarterly Journal of Economics}, revise and resubmit}
+\entry{2025}{\textbf{\href{https://www.mathtd.info/files/papers/Time\%20to\%20build/paper.pdf}{Echoes and Delays: Time-to-build in Production Networks}}\\
+with Edouard Schaal}
+\entry{2021}{\textbf{\href{https://www.mathtd.info/files/papers/china_automation/paper.pdf}{The Future of Labor: Automation and the Labor Share in the Second Machine Age}}\\
+with Hong Cheng, Lukasz Drozd, Rahul Giri and Junjie Xia}
+\entry{2016}{\textbf{\href{https://www.mathtd.info/files/papers/Coordination\%20and\%20the\%20Dynamics\%20of\%20Unemployment/paper.pdf}{Aggregate Demand and the Dynamics of Unemployment}}\\
+with Edouard Schaal}
+
+\subsection{Published and Accepted Papers}
+\entry{2026}{\textbf{\href{https://doi.org/10.1093/restud/rdaf036}{Cascades and Fluctuations in an Economy with an Endogenous Production Network}}\\
+\textit{Review of Economic Studies} (featured article)}
+\entry{2025}{\textbf{\href{https://doi.org/10.1016/j.jmoneco.2025.103829}{Coordinating Business Cycles}}\\
+with Edouard Schaal\\
+\textit{Journal of Monetary Economics}}
+\entry{2024}{\textbf{\href{https://doi.org/10.3982/ECTA20629}{Endogenous Production Networks under Supply Chain Uncertainty}}\\
+with Alexandr Kopytov, Bineet Mishra and Kristoffer Nimark\\
+\textit{Econometrica}}
+\entry{2023}{\textbf{\href{https://doi.org/10.1016/j.jet.2023.105669}{Herding Through Booms and Busts}}\\
+with Edouard Schaal\\
+\textit{Journal of Economic Theory}}
+\entry{2023}{\textbf{\href{https://doi.org/10.1086/723717}{Cheap Thrills: the Price of Leisure and the Global Decline in Work Hours}}\\
+with Alexandr Kopytov and Nikolai Roussanov\\
+\textit{Journal of Political Economy Macroeconomics} (inaugural edition)}
+\entry{2020}{\textbf{\href{https://doi.org/10.1093/restud/rdaa027}{The Union Threat}}\\
+\textit{Review of Economic Studies}}
+\entry{2018}{\textbf{\href{https://doi.org/10.1016/j.jmoneco.2018.05.011}{Short-Run Pain, Long-Run Gain? Recessions and Technological Transformation}}\\
+with Alexandr Kopytov and Nikolai Roussanov\\
+\textit{Journal of Monetary Economics} (Carnegie-Rochester-NYU Conference Series)}
+\entry{2017}{\textbf{\href{https://doi.org/10.1093/qje/qjx021}{Uncertainty Traps}}\\
+with Pablo Fajgelbaum and Edouard Schaal\\
+\textit{Quarterly Journal of Economics}}
+
+\subsection{Invited Lectures and Plenary Talks}
+\entry{2026}{Keynote speaker, Congrès de la Société canadienne de science économique}
+
+\subsection{Seminars and Conferences}
+{\small\itshape\hspace*{0.16\textwidth}(including scheduled)}\par\smallskip
+\entry{2026}{HEC--McGill Winter Finance Workshop, Carnegie Mellon University, Macro Theory Group, Barcelona School of Economics Summer Forum (x2).}
+\entry{2025}{Federal Reserve Bank of San Francisco, Federal Reserve Bank of Chicago, Federal Reserve Bank of Richmond, Peking University HSBC Business School, Princeton University Conference in Honor of Nobuhiro Kiyotaki, Barcelona School of Economics Summer Forum, Society for Economic Dynamics Meeting, Stanford Institute for Theoretical Economics, Rutgers University, Canadian Macroeconomics Study Group.}
+\entry{2024}{Georgetown, Ninth Annual Conference on Network Science and Economics, University of Western Ontario, Barcelona School of Economics Summer Forum, Université Laval, University of Texas at Austin, University of North Carolina at Chapel Hill, Queen's University, Federal Reserve Bank of Philadelphia.}
+\entry{2023}{North American Winter Meeting of the Econometric Society, Université de Montréal, Federal Reserve Bank of Richmond (CORE week), Federal Reserve Bank of Richmond Conference on Production Networks, Global Economic Networks workshop, Workshop on International Economic Networks (WIEN), Université du Québec à Montréal, Paris School of Economics and Sciences Po joint seminar, Centre de Recerca en Economia Internacional, Harvard (joint macro and trade).}
+\entry{2022}{University of Glasgow, Paris School of Economics, University of Rochester, Canadian Economics Association Annual Meeting, Society for Economic Dynamics Meeting, NBER Summer Institute, Minnesota Workshop in Macroeconomic Theory, Stanford Institute for Theoretical Economics, Boston University, Canadian Macroeconomics Study Group.}
+\entry{2021}{ASSA Meeting, Boston College, Canadian Macroeconomics Study Group (x2), North American Summer Meeting of the Econometric Society, Western Economic Association International Annual Conference, Society for Economic Dynamics Meeting, University of Virginia, New York University, University of Pennsylvania, George Washington University, Toulouse School of Economics.}
+\entry{2020}{Université Laval, Virtual Macro Seminar (VMACS).}
+\entry{2019}{ASSA Meeting, Federal Reserve Bank of Atlanta/Emory University, Federal Reserve Bank of Philadelphia, Binghamton University, City University of Hong Kong, Hong Kong University of Science and Technology, Bank of Canada Frontiers of Monetary Policy and Financial Studies Conference.}
+\entry{2018}{Federal Reserve Bank of New York, Cornell/Penn State Workshop, Midwest Macroeconomic Meetings, Society for Economic Dynamics Meeting, Minnesota Workshop in Macroeconomic Theory, University of Southern California Marshall School, New York University Search Workshop, Queen's University, Princeton University.}
+\entry{2017}{Drexel University, Fundação Getulio Vargas São Paulo, Cornell/Penn State Workshop, University of Texas at Austin, Society for Economic Dynamics Meeting, Society for the Advancement of Economic Theory meeting, ITAM-PIER Conference, CIRANO-Sam M. Walton College of Business Workshop on Networks in Trade and Finance, Tepper-LAEF Conference, London School of Economics, Canadian Macroeconomics Study Group, Rutgers University.}
+\entry{2016}{ASSA Meeting, Duke University, Canadian Economics Association Conference, Society for Economic Dynamics Meeting, NBER Summer Institute, Minnesota Workshop in Macroeconomic Theory, Pennsylvania State University, New York University, University of California Los Angeles, University of British Columbia, University of Wisconsin-Madison, Federal Reserve Bank of Minneapolis, Cornell University, Federal Reserve Bank of Philadelphia.}
+\entry{2015}{University of California Los Angeles, Princeton University, 4th Junior Conference on Macroeconomics at Einaudi, Society for Economic Dynamics Meeting, World Congress Econometric Society, Wharton Liquidity Conference, Chinese University of Hong Kong.}
+\entry{2014}{Society for Economic Dynamics Meeting, North American Summer Meeting of the Econometric Society, NBER Summer Institute, NBER Universities Research Conference.}
+\entry{2013}{Canadian Macroeconomics Study Group, Federal Reserve Bank of New York.}
+\entry{2012}{ASSA Meeting, Cornell/Penn State Macro Workshop, Federal Reserve Bank of Minneapolis, Federal Reserve Bank of St.\ Louis, Yale University.}
+\entry{2011}{University of Pennsylvania, University of Chicago Booth School, University of Chicago, Federal Reserve Board, Université du Québec à Montréal, McGill University, Université de Montréal, HEC Lausanne, CREI, Institute for International Economic Studies, University of California Los Angeles, Wharton, Society for Economic Dynamics Meeting, Penn Search and Matching Workshop, Boston University.}
+\entry{2010}{Canadian Economics Association Conference, Society for Economic Dynamics Meeting, Princeton University, Federal Reserve Bank of Chicago.}
+
+% --- Teaching ---
+\section{Teaching}
+\subsection{Cornell University}
+\entry{2018--present}{ECON 3040, Intermediate Macroeconomic Theory (undergraduate)}
+\entry{2017--present}{ECON 6130, Macroeconomics I (PhD)}
+\entry{2025--present}{ECON 7265, Production Networks (PhD)}
+\subsection{The Wharton School}
+\entry{2016--2017}{FNCE 613, Macroeconomics and the Global Economy (MBA)}
+\entry{2013--2014}{FNCE 101, Monetary Economics and the Global Economy (undergraduate)}
+\entry{2012--2014}{FNCE 924, Intertemporal Macroeconomics and Finance (PhD)}
+
+% --- Professional Activities ---
+\section{Professional Activities}
+\subsection{Affiliations}
+\entry{2019--present}{Faculty Affiliate, Cornell Center for Social Sciences, Cornell University}
+\entry{2019--present}{Faculty Affiliate, Center for the Study of Inequality, Cornell University}
+\subsection{Conference Organization}
+\entry{2021}{Program Committee Member, North American Summer Meeting of the Econometric Society}
+\entry{2017--2019}{Co-director (with Kristoffer Nimark and Neil Wallace), Cornell/Penn State Macroeconomics Workshop}
+\entry{2016--2018}{Program Committee Member, Society for Economic Dynamics Meetings}
+\subsection{Service}
+\entry{2021--present}{Organizer, S.\,C.\ Tsiang Macroeconomics Workshop, Cornell University}
+\entry{2018--2022}{Recruitment committee, Cornell University (2018--2020, 2021--2022)}
+% \entry{2011--2017}{Macroeconomics seminar, The Wharton School (2011–2012, 2013–2014, 2015–2017)}
+\entry{2011--2017}{Recruitment committee, The Wharton School}
+\subsection{Short Visits}
+\entryfull{Federal Reserve Bank of Richmond (March 2023), University of Texas at Austin (May 2017), Federal Reserve Bank of Minneapolis (June 2012 and October 2016), Université de Montréal (August 2015), Federal Reserve Bank of Philadelphia (2015), Federal Reserve Bank of St.\ Louis (August 2012).}
+\subsection{Referee}
+\entryfull{American Economic Journal: Applied Economics, American Economic Journal: Macroeconomics, American Economic Review, American Economic Review: Insights, Econometrica, Economic Inquiry, Economic Journal, Economics Letters, Economic Theory, International Economic Review, Journal of Economic Dynamics and Control, Journal of Economic Theory, Journal of the European Economic Association, Journal of Finance, Journal of International Economics, Journal of Monetary Economics, Journal of Political Economy, Journal of Political Economy Microeconomics, Journal of Public Economics, Journal of Urban Economics, National Science Foundation, Quantitative Economics, Quarterly Journal of Economics, Review of Economic Dynamics, Review of Economics and Statistics, Review of Economic Studies, Review of Financial Studies, Swiss National Science Foundation, Theoretical Economics.}
+
+% --- Grants, Honors and Awards ---
+\section{Grants, Honors and Awards}
+\entry{2023--2024}{Faculty Fellow, Cornell Center for Social Sciences, Cornell University}
+\entry{2021}{SCOR-PSE Junior Research Prize}
+\entry{2021}{Grant, Cornell Center for Social Sciences, Cornell University}
+\entry{2019}{Hatfield Research Grant}
+\entry{2018--2020}{Small Grants, Institute for the Social Sciences, Cornell University}
+\entry{2017--2025}{The Robert Jain Faculty Fellowship in Arts and Sciences}
+\entry{2016}{Marshall E. Blume Prize, Honorable Mention}
+\entry{2014}{Cynthia and Bennett Golub Endowed Faculty Scholar Award}
+\entry{2014}{Rodney White Center Research Grant}
+\entry{2010, 2011}{Outstanding Teaching Award, Woodrow Wilson School, Princeton University}
+\entry{2008--2011}{Doctoral Fellowship, Fonds Québécois de Recherche sur la Société et la Culture}
+\entry{2007}{Summer Fellowship, International Economic Section, Princeton University}
+\entry{2006--2011}{Graduate Fellowship, Princeton University}
+\entry{2006--2008}{Masters Fellowship, Fonds Québécois de Recherche sur la Nature et les Technologies}
+\entry{2006}{Dean's Award, École Polytechnique de Montréal}
+\entry{2006}{McConnell Foundation Award, École Polytechnique de Montréal}
+
+% --- Personal ---
+\section{Personal}
+\entryfull{Married to \href{https://liztennant.github.io}{Elizabeth Tennant}. Two children born in 2016 and 2020.}
+
+\vspace{1.5em}
+\begin{center}\footnotesize\color{black!55}
+Last updated: \monthyeardate\today.\ \href{https://www.mathtd.info/files/cv.pdf}{Click here for most recent version.}
+\end{center}
+
+\end{document}
